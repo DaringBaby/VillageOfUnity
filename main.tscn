@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjy37bxk6gfgu"]
+
+[ext_resource type="Texture2D" uid="uid://bl8qngxehgs47" path="res://sprites/main_menu.png" id="1_ui5dx"]
+[ext_resource type="FontFile" uid="uid://dijegd7hmkae6" path="res://dogicapixel.ttf" id="2_va7am"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="2_wbakt"]
+[ext_resource type="Texture2D" uid="uid://bpxle071s1yb8" path="res://sprites/flowers.png" id="3_iwp6u"]
+[ext_resource type="AudioStream" uid="uid://bhx3umu3u6awh" path="res://On My Way.wav" id="5_pxk41"]
+
+[node name="Main" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ui5dx")
+script = ExtResource("2_wbakt")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -23.0
+offset_right = 77.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.820313, 0.789063, 0.738281, 1)
+theme_override_colors/font_outline_color = Color(0.277344, 0.175781, 0.234375, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_va7am")
+text = "PRESS START!"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 112.0
+offset_top = -16.0
+offset_right = 266.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.820313, 0.789063, 0.738281, 1)
+theme_override_colors/font_outline_color = Color(0.277344, 0.175781, 0.234375, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_va7am")
+theme_override_font_sizes/font_size = 8
+text = "By Daring01"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -167.0
+offset_right = 74.0
+offset_bottom = -133.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.21875, 0.847656, 0.449219, 1)
+theme_override_colors/font_outline_color = Color(0.277344, 0.175781, 0.234375, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_va7am")
+theme_override_font_sizes/font_size = 24
+text = "VILLAGE OF 
+UNITY"
+horizontal_alignment = 1
+
+[node name="Flowers" type="Sprite2D" parent="."]
+position = Vector2(-32, 176)
+texture = ExtResource("3_iwp6u")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_pxk41")
+volume_db = -10.0
+autoplay = true
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

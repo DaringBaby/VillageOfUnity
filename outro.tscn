@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5wjuclq2xbu8"]
+
+[ext_resource type="Texture2D" uid="uid://bmj0x56druxs" path="res://sprites/end_menu.png" id="1_7c1ui"]
+[ext_resource type="FontFile" uid="uid://dijegd7hmkae6" path="res://dogicapixel.ttf" id="2_c8h0j"]
+[ext_resource type="Texture2D" uid="uid://daqg648o1yde5" path="res://sprites/sword.png" id="3_qel7t"]
+[ext_resource type="AudioStream" uid="uid://bhx3umu3u6awh" path="res://On My Way.wav" id="4_i8rjk"]
+
+[node name="Outro" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_7c1ui")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -134.0
+offset_top = 16.0
+offset_right = 134.0
+offset_bottom = 39.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.808594, 0.773438, 0.71875, 1)
+theme_override_fonts/font = ExtResource("2_c8h0j")
+theme_override_font_sizes/font_size = 16
+text = "Thank you for playing!"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -134.0
+offset_top = 40.0
+offset_right = 134.0
+offset_bottom = 63.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.808594, 0.773438, 0.71875, 1)
+theme_override_fonts/font = ExtResource("2_c8h0j")
+theme_override_font_sizes/font_size = 8
+text = "You fulfilled all of the villagers' requests!
+
+Made by: Daring01
+
+Texture pack used: Kenney 1-bit pack
+
+Songs:
+
+Village: TAD - 8 bit lofi Ice Cave
+Spooky: Memoraphile - Spooky Dungeon
+Menu: Delta Breker - On my Way
+"
+horizontal_alignment = 1
+
+[node name="Sword" type="Sprite2D" parent="."]
+position = Vector2(128, 336)
+texture = ExtResource("3_qel7t")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_i8rjk")
+volume_db = -10.0
+autoplay = true

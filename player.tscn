@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://ba5pmfrqv0xcn"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_41d8g"]
+[ext_resource type="Texture2D" uid="uid://bd16t3ert56d7" path="res://sprites/player.png" id="1_50fdw"]
+[ext_resource type="Script" path="res://scripts/GridMovement.gd" id="3_u4lon"]
+[ext_resource type="Texture2D" uid="uid://db0e8bgsecxqn" path="res://sprites/pickaxe.png" id="4_dmp4j"]
+[ext_resource type="Texture2D" uid="uid://lpfrp3osmabi" path="res://sprites/dialogue.png" id="4_m1vr3"]
+[ext_resource type="Texture2D" uid="uid://c8exvpe1snr8l" path="res://sprites/pickaxe2.png" id="5_ubu4q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxt1i"]
+size = Vector2(16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6jyb7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_m1vr3")
+}],
+"loop": true,
+"name": &"dialogue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_dmp4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ubu4q")
+}],
+"loop": true,
+"name": &"pickaxe",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jpw2a"]
+size = Vector2(12, 12)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_41d8g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_50fdw")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_xxt1i")
+
+[node name="GridMovement" type="Node2D" parent="." node_paths=PackedStringArray("self_node")]
+script = ExtResource("3_u4lon")
+self_node = NodePath("..")
+
+[node name="RayCast2D" type="RayCast2D" parent="GridMovement"]
+position = Vector2(8, 8)
+target_position = Vector2(0, 14)
+
+[node name="Balloon" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(8, -8)
+sprite_frames = SubResource("SpriteFrames_6jyb7")
+animation = &"dialogue"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_jpw2a")
+
+[connection signal="area_entered" from="Area" to="." method="_on_area_area_entered"]

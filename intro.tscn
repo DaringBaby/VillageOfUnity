@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://col8llwgsgiaa"]
+
+[ext_resource type="Texture2D" uid="uid://bmj0x56druxs" path="res://sprites/end_menu.png" id="1_7xjrm"]
+[ext_resource type="Script" path="res://scripts/intro.gd" id="2_365vf"]
+[ext_resource type="FontFile" uid="uid://dijegd7hmkae6" path="res://dogicapixel.ttf" id="2_dl8w5"]
+[ext_resource type="Texture2D" uid="uid://colj5fxeyfrnm" path="res://sprites/shopkeeper.png" id="3_4oh4o"]
+
+[node name="Intro" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_7xjrm")
+script = ExtResource("2_365vf")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -64.0
+offset_right = 144.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.808594, 0.773438, 0.71875, 1)
+theme_override_constants/line_spacing = 9
+theme_override_fonts/font = ExtResource("2_dl8w5")
+theme_override_font_sizes/font_size = 8
+text = "In a foreign village, every creature fought over silly matters for ages. In the present days, the battles have stopped but there still is some hatred between the different kinds. It's your turn to help different kinds in order to show other people that war isn't necessary
+and people can live in harmony and help each other. Take your pickaxe and try to fulfill
+every request you are presented!"
+autowrap_mode = 2
+
+[node name="Shopkeeper" type="Sprite2D" parent="."]
+position = Vector2(-32, 304)
+texture = ExtResource("3_4oh4o")
